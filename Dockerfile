@@ -28,7 +28,7 @@ RUN cargo leptos build --release -vv
 
 FROM rustlang/rust:nightly-bullseye as runner
 # Copy the server binary to the /app directory
-COPY --from=builder /app/target/server/release/leptos_website /app/
+COPY --from=builder /app/target/server/release/backend-test /app/
 # /target/site contains our JS/WASM/CSS, etc.
 COPY --from=builder /app/target/site /app/site
 # Copy Cargo.toml if it’s needed at runtime
@@ -42,4 +42,4 @@ ENV LEPTOS_SITE_ADDR="0.0.0.0:8080"
 ENV LEPTOS_SITE_ROOT="site"
 EXPOSE 8080
 # Run the server
-CMD ["/app/leptos_website"]
+CMD ["/app/backend-test"]

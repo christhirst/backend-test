@@ -25,7 +25,7 @@ COPY . .
  
 # Build the app
 RUN cargo leptos build --release -vv
-RUN ls -l ./app/target/release
+RUN ls -l /app/target/release
 RUN pwd
 FROM rustlang/rust:nightly-bullseye as runner
 # Copy the server binary to the /app directory

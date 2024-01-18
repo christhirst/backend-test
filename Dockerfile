@@ -25,11 +25,11 @@ COPY . .
  
 # Build the app
 RUN cargo leptos build --release -vv
-RUN ls -l
+RUN ls -l ./app/target/release
 RUN pwd
 FROM rustlang/rust:nightly-bullseye as runner
 # Copy the server binary to the /app directory
-COPY --from=builder /app/target/server/release/backend-test /app/
+COPY --from=builder /app/target/release/backend-test /app/
 # /target/site contains our JS/WASM/CSS, etc.
 COPY --from=builder /app/target/site /app/site
 # Copy Cargo.toml if it’s needed at runtime

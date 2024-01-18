@@ -51,7 +51,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          target: runtime
+          target: runner
           push: true
           tags: raynkami/rust.leptos:v0.0.1
           labels: rust.leptos

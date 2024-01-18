@@ -1,3 +1,4 @@
+#workspace = { members = ["leptos_oidc2" ] }
 [package]
 name = "backend-test"
 version = "0.1.0"
@@ -7,6 +8,7 @@ edition = "2021"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
+leptos_oidc2 = { path = "./leptos_oidc2" }
 axum = { version = "0.6.4", optional = true }
 console_error_panic_hook = "0.1"
 console_log = "1"
@@ -15,6 +17,7 @@ leptos = { version = "0.5", features = ["nightly"] }
 leptos_axum = { version = "0.5", optional = true }
 leptos_meta = { version = "0.5", features = ["nightly"] }
 leptos_router = { version = "0.5", features = ["nightly"] }
+#leptos_oidc = "0.2"
 log = "0.4"
 serde = { version = "1", features = ["derive"] }
 simple_logger = "4"

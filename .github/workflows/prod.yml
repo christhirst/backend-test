@@ -53,8 +53,8 @@ jobs:
           context: .
           target: runtime
           push: true
-          tags: raynkami/rust.ldap:v0.0.2
-          labels: rust.ldap
+          tags: raynkami/rust.leptos:v0.0.1
+          labels: rust.leptos
 
   del_runs:
     runs-on: ubuntu-latest

@@ -1,5 +1,6 @@
 # Get started with a build env with Rust nightly
 FROM rustlang/rust:nightly-bullseye as builder
+RUN apt install clang
 
 # If you’re using stable, use this instead
 # FROM rust:1.70-bullseye as builder

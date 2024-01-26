@@ -4,6 +4,8 @@ use leptos::*;
 use leptos_meta::*;
 use leptos_oidc2::{Auth, AuthParameters};
 use leptos_router::*;
+use std::collections::HashMap;
+ 
 
 #[component]
 pub fn App() -> impl IntoView {
@@ -122,5 +124,25 @@ fn MyComponent() -> impl IntoView {
     view! {
         <button>count()</button>
         <A href=name>Login</A>
+        <button on:click=move |_| {
+            spawn_local(async {
+                add_todo("So much to do!".to_string()).await;
+            });
+        }>"Add Todo"</button>
     }
 }
+
+
+
+
+#[server(AddTodo, "/api")]
+pub async fn add_todo(title: String) -> Result<(), ServerFnError> {
+    let resp = reqwest::get("https://httpbin.org/ip")
+        .await?
+        .json::<HashMap<String, String>>()
+        .await?;
+println!("{:#?}---{:#?}","rrr",resp);
+
+    Ok(())
+}
+
